@@ -1,0 +1,21 @@
+
+.width-100{
+    width: 100%;
+    padding: 0px;
+}
+
+nav{
+    border-radius: 0px;
+}
+
+#itemCount {
+    position: absolute;
+    top: -12px;
+    left: -12px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: red;
+    color: white;
+    text-align: center;
+  }
