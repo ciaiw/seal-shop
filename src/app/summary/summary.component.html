@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="row">
+      <div class="col-md-12">
+          <div class="panel panel-default">
+              <div class="panel-heading">
+                  <h3 class="text-center"><strong>Order summary</strong></h3>
+              </div>
+              <div class="panel-body">
+                  <div class="table-responsive">
+                      <table class="table table-condensed">
+                          <thead>
+                              <tr>
+                                  <td><strong>Item Name</strong></td>
+                                  <td class="text-center"><strong>Item Price</strong></td>
+                                  <td class="text-center"><strong>Item Quantity</strong></td>
+                                  <td class="text-right"><strong>Total</strong></td>
+                              </tr>
+                          </thead>
+                          <tbody>
+                              <tr *ngFor="let item of cartItemsKeys; let i = index">
+                                  <td>{{ cartItem[item].item.title}}</td>
+                                  <td class="text-center">{{ cartItem[item].item.price}}</td>
+                                  <td class="text-center">{{ cartItem[item].amount}}</td>
+                                  <td class="text-right">{{ cartItem[item].amount * cartItem[item].item.price}}</td>
+                              </tr>
+                          </tbody>
+                      </table>
+                  </div>
+              </div>
+              <div class="col-md-12 text-right"><h3 >Total : </h3></div>
+          </div>
+      </div>
+  </div>
+</div>
+
+

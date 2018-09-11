@@ -8,6 +8,7 @@ import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { TitlePipe } from './title.pipe';
 import { BgColorDirective } from './bg-color.directive';
+import { SummaryComponent } from './summary/summary.component';
 
 
 @NgModule({
@@ -16,6 +17,7 @@ import { BgColorDirective } from './bg-color.directive';
     ShoppingCartComponent,
     TitlePipe,
     ProductListComponent,
+    SummaryComponent,
     BgColorDirective
   ],
   imports: [ //import TS
@@ -27,6 +29,7 @@ import { BgColorDirective } from './bg-color.directive';
 
       { path:"", component: ProductListComponent},
       {path:"cart", component: ShoppingCartComponent },
+      {path:"summary", component: SummaryComponent },
       { path:"about", loadChildren: "./about/about.module#AboutModule" }, //format pathmodule/file name module#nameModule 
     ]),
     ReactiveFormsModule

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, ParamMap } from '@angular/router';
 
 @Component({
   selector: 'app-contact',
@@ -7,7 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactComponent implements OnInit {
 
-  constructor() { }
+  name: string ;
+
+  constructor(router: ActivatedRoute) { 
+    router.paramMap.subscribe((paramMap: ParamMap) =>{
+      if(paramMap.has("name")){
+      
+        this.name = "test"
+      }
+    });
+  }
 
   ngOnInit() {
   }

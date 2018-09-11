@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Item } from "../item";
 import { CartService } from '../cart.service';
 import { cartItem } from '../cart';
@@ -15,7 +15,10 @@ export class ShoppingCartComponent implements OnInit {
  
   amountArrayControl: FormArray;
   formGroup: FormGroup;
-  totalPrice: number;
+  // @Output() totalPrice = new EventEmitter();
+
+  public totalPrice: number;
+
 
   constructor(public cartService: CartService, formBuilder: FormBuilder) { 
     this.cartItem = cartService.getItems();
@@ -60,6 +63,7 @@ export class ShoppingCartComponent implements OnInit {
       this.amountArrayControl.removeAt(index);
       delete this.cartItem[itemId];
   }
+
 
   ngOnInit() {
 

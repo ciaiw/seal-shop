@@ -25,8 +25,11 @@ export class AppComponent {
 
   constructor(ProductsService: ProductsService, public CartService: CartService){
     ProductsService.itemList = this.listItem;
-    this.cartItemCount = CartService.getItemsCount();
-    
+    this.cartItemCount = this.CartService.count;
+    console.log('show cart : ', this.cartItemCount)
+    console.log('cartservice :',this.CartService.count)
+
+
   }
  
   

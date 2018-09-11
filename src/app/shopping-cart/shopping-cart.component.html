@@ -41,7 +41,7 @@
 				<td colspan="2" class="hidden-xs"></td>
 				<td class="hidden-xs text-center"><strong>Total : {{totalPrice | currency: 'THB': 'symbol-narrow'}}
 					</strong></td>
-				<td><button routerLink="/" class="btn btn-success btn-block" [disabled]="!formGroup.valid">Checkout <i class="fa fa-angle-right"></i></button></td>
+				<td><button routerLink="/summary" class="btn btn-success btn-block" [disabled]="!formGroup.valid">Checkout <i class="fa fa-angle-right"></i></button></td>
 			</tr>
 		</tfoot>
 	</table>
