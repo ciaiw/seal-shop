@@ -19,15 +19,15 @@
                           <tbody>
                               <tr *ngFor="let item of cartItemsKeys; let i = index">
                                   <td>{{ cartItem[item].item.title}}</td>
-                                  <td class="text-center">{{ cartItem[item].item.price}}</td>
+                                  <td class="text-center">{{ cartItem[item].item.price | currency: 'THB': 'symbol-narrow'}}</td>
                                   <td class="text-center">{{ cartItem[item].amount}}</td>
-                                  <td class="text-right">{{ cartItem[item].amount * cartItem[item].item.price}}</td>
+                                  <td class="text-right">{{ cartItem[item].amount * cartItem[item].item.price | currency: 'THB': 'symbol-narrow'}}</td>
                               </tr>
                           </tbody>
                       </table>
                   </div>
               </div>
-              <div class="col-md-12 text-right"><h3 >Total : </h3></div>
+              <div class="col-md-12 text-right"><h3 >Total : {{cartService.total  | currency: 'THB': 'symbol-narrow' }}</h3></div>
           </div>
       </div>
   </div>

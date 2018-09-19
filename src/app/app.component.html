@@ -10,14 +10,15 @@
               <li><a routerLink="/about/contact">Contact</a></li>
               <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" > Type <span class="caret"></span></a>
                 <ul class="dropdown-menu">
-                  <li><a routerLink="/" [queryParams]="{category: 'รองเท้า'}">รองเท้า</a></li>
-                  <li><a routerLink="/" [queryParams]="{category: 'เสื้อ'}">เสื้อ</a></li>
-                  <li><a routerLink="/" [queryParams]="{category: 'กระเป๋า'}">กระเป๋า</a></li>
+                  <li><a routerLink="/" [queryParams]="{category: 'shirt'}">เสื้อ</a></li>
+                  <li><a routerLink="/" [queryParams]="{category: 'shoe'}">รองเท้า</a></li>
+                  <li><a routerLink="/" [queryParams]="{category: 'bag'}">กระเป๋า</a></li>
                 </ul>
               </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-              <li><a routerLink="/cart"><span class="glyphicon glyphicon-shopping-cart"><span id="itemCount">{{ this.cartItemCount }}</span></span></a></li>
+              <li><a routerLink="/cart"><span class="glyphicon glyphicon-shopping-cart"><span type="text" id="itemCount">{{ cartService.count }}</span></span></a></li>
+              
             </ul>
           </div>
         </nav>

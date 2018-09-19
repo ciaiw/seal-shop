@@ -9,7 +9,9 @@ import { ProductListComponent } from './product-list/product-list.component';
 import { TitlePipe } from './title.pipe';
 import { BgColorDirective } from './bg-color.directive';
 import { SummaryComponent } from './summary/summary.component';
-
+import { FormsModule } from "@angular/forms";
+import { HttpModule } from "@angular/http";
+import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
   declarations: [ //ประกาศใช้ componen, ShoppingCartComponentt
@@ -32,11 +34,13 @@ import { SummaryComponent } from './summary/summary.component';
       {path:"summary", component: SummaryComponent },
       { path:"about", loadChildren: "./about/about.module#AboutModule" }, //format pathmodule/file name module#nameModule 
     ]),
-    ReactiveFormsModule
-
+    ReactiveFormsModule,
+    FormsModule,
+    HttpModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent] //default component จะประกาศใช้เฉพาะตอนแรกไม่จำเปนต้องประกาศทุก module
 })
-export class AppModule { }
+export class AppModule { } 
 

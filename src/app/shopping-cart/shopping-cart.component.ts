@@ -1,5 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { Item } from "../item";
+import { Component, OnInit } from '@angular/core';
 import { CartService } from '../cart.service';
 import { cartItem } from '../cart';
 import { FormControl, Validators ,FormArray, FormGroup, FormBuilder} from "@angular/forms";
@@ -14,6 +13,7 @@ export class ShoppingCartComponent implements OnInit {
   cartItemsKeys : string[];
  
   amountArrayControl: FormArray;
+  idArrayControl: FormArray;
   formGroup: FormGroup;
   // @Output() totalPrice = new EventEmitter();
 
@@ -25,9 +25,11 @@ export class ShoppingCartComponent implements OnInit {
     this.cartItemsKeys = Object.keys(this.cartItem);
 
     this.amountArrayControl = new FormArray([], Validators.required);
+    this.idArrayControl = new FormArray([]);
 
     this.formGroup = new FormGroup({
-      cartList: this.amountArrayControl
+      cartList: this.amountArrayControl,
+      idList: this.idArrayControl
     });
    
     // this.formGroup =  formBuilder.group({
@@ -46,27 +48,43 @@ export class ShoppingCartComponent implements OnInit {
           const itemInCart = this.cartItem[itemId];
          return (amount * itemInCart.item.price) + total;
         }, 0);
+        cartService.total = this.totalPrice;
+       console.log('id ', data.idList);
+     //  this.cartItem[data.idList].amount = this.formGroup.value;
+       //console.log('count ', data.idList[0].id)
+        this.cartService.count = 0;
+        for (var key in this.cartItem) {
+          this.cartService.count = this.cartService.count + this.cartItem[key].amount;
+        }
       },
       error: (err) => {},
-      complete: () =>{}
+      complete: () =>{
+       
+
+      }
     });
     
     this.cartItemsKeys.forEach((cartItemsKeys) =>{
       this.amountArrayControl.push(new FormControl(this.cartItem[cartItemsKeys].amount,[Validators.min(1), Validators.required]));
+      this.idArrayControl.push(new FormControl(this.cartItem[cartItemsKeys]));
    });
 
    }
-
 
    removeItems(itemId: string, index: number){
       this.cartItemsKeys.splice(index, 1);
       this.amountArrayControl.removeAt(index);
       delete this.cartItem[itemId];
+     
+      this.cartService.count = 0;
+      for (var key in this.cartItem) {
+        this.cartService.count += this.cartItem[key].amount;
+      }
   }
 
 
   ngOnInit() {
-
+   
   }
 
 

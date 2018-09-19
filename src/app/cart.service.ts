@@ -8,8 +8,12 @@ import { cartItem } from './cart';
 export class CartService {
   public itemList: cartItem;
   count: number = 0;
+  total: number;
+
   constructor() { 
     this.itemList = {};
+   
+   
   }
 
   getItems(){
@@ -19,19 +23,21 @@ export class CartService {
   addItems(item: Item){
     if(this.itemList[item.id]){
       this.itemList[item.id].amount++;
-     // this.itemList[item.id].subTotal = this.itemList[item.id].amount * this.itemList[item.id].item.price;
-     
+      this.itemList[item.id].subTotal = this.itemList[item.id].amount * this.itemList[item.id].item.price;
+      
     }else{
       this.itemList[item.id] = {
         item: item,
-        amount: 1
+        amount: 1,
+        subTotal: item.price
       }
+     
     }
-    this.count = Object.keys(this.itemList).length;
-    console.log('count : ', this.count)
-   
-
+    
+  this.count ++;
   }
+
+
 
  
 }

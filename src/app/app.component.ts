@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ProductsService } from "src/app/products.service";
 import { CartService } from './cart.service';
 
@@ -22,15 +22,17 @@ export class AppComponent {
   // ];
   toggleCart = false;
   cartItemCount;
-
-  constructor(ProductsService: ProductsService, public CartService: CartService){
+ test: string = "ciaiw";
+ 
+  constructor(ProductsService: ProductsService, public cartService: CartService){
     ProductsService.itemList = this.listItem;
-    this.cartItemCount = this.CartService.count;
-    console.log('show cart : ', this.cartItemCount)
-    console.log('cartservice :',this.CartService.count)
+ // this.cartItemCount = CartService.count;
 
 
   }
- 
-  
+
+  ngOnInit(){
+    this.cartItemCount = this.cartService.count;
+
+  }
 }

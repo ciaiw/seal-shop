@@ -16,19 +16,26 @@ export class ProductListComponent implements OnInit {
   constructor(ProductsService: ProductsService, private cartService: CartService, private router: ActivatedRoute) {
     //this.listItem = ProductsService.itemList;
 
-    router.queryParamMap.subscribe({
-      next: (queryParamMap: ParamMap) => {
-        if(queryParamMap.has("category")){
-          const category = queryParamMap.get("category");
-          this.listItem = ProductsService.itemList.filter((item) =>{
-            return item.category == category;
-          }); 
-          
-        }else{
-          this.listItem = ProductsService.itemList;
-        }
-      },
+    ProductsService.getAll().subscribe({
+      next: (product) =>{
+        
+        router.queryParamMap.subscribe({
+          next: (queryParamMap: ParamMap) => {
+            if(queryParamMap.has("category")){
+              const category = queryParamMap.get("category");
+              this.listItem = product.filter((item) =>{
+                return item.category == category;
+              }); 
+              
+            }else{
+              this.listItem = product;
+            }
+          },
+        });
+
+      }
     });
+
    }
 
   ngOnInit() { //เรียกตอน component ถูกสร้างในครั้งแรกครั้งเดียว

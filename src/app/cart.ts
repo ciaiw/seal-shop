@@ -7,5 +7,6 @@ export interface cartItem{
 export interface ItemWithAmount{
     item: Item
     amount: number
+    subTotal: number
 }
 

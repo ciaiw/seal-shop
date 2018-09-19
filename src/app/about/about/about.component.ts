@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
-
+import { TodoListService } from "../../todo-list.service";
 @Component({
   selector: 'app-about',
   templateUrl: './about.component.html',
@@ -9,8 +9,9 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 export class AboutComponent implements OnInit {
 
   name: string;
-  
-  constructor(router: ActivatedRoute) { 
+  todo: todoList[];
+
+  constructor(router: ActivatedRoute, private todoListService: TodoListService) { 
     router.paramMap.subscribe((paramMap: ParamMap) =>{
       if(paramMap.has("name")){
         const name = paramMap.get("name");
@@ -19,7 +20,20 @@ export class AboutComponent implements OnInit {
     });
   }
 
+
+  
   ngOnInit() {
+    // this.todoListService.getTodoList().subscribe((res) => {
+    //   this.todo = res;
+    // }); 
+
   }
 
+}
+
+interface todoList {
+  userId: number;
+  id: number;
+  title: string;
+  completed: boolean;
 }

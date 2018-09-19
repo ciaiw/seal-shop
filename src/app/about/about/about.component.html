@@ -24,11 +24,9 @@
   
     <div>
   
-      <p class="text-left"><strong>Bio: </strong><br>
-  
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sem dui, tempor sit amet commodo a, vulputate vel
-  
-        tellus.</p>
+      <ul>
+        <li *ngFor="let item of todo; let i = index;">{{ item.title }}</li>
+      </ul>
   
       <br>
   
