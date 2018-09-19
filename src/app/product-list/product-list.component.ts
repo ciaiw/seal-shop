@@ -59,7 +59,7 @@ export class ProductListComponent implements OnInit {
 
 
 
-
+  
   ngOnChange() { //เรียกตอนมีการเปลี่ยนแปลงบางอย่าง component
   }
   ngDoCheck(){ // ถูกเรียกตอน มีการยุ่งกับ event ที่ angular ไม่รู้จัก จะมาทำงานที่เมธอดนี้
