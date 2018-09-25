@@ -19,3 +19,32 @@ img{
     border-radius: 0px;
     border: 0px;
 }
+
+.row{
+    margin-bottom: 8px;
+}
+
+table {
+    /* border-collapse: collapse;
+    border-radius: 5px; */
+    /* overflow: hidden; */
+    border: 1px solid #ccc;
+}
+
+.btn-green{
+    background: #a3c859;
+    margin-right: 10px;
+    color: #FFF;
+}
+.th-green{
+    background-color: #a3c859;
+    color: #FFF;
+}
+
+table tr:last-child td:first-child {
+    border-bottom-left-radius: 10px;
+}
+
+table tr:last-child td:last-child {
+    border-bottom-right-radius: 10px;
+}

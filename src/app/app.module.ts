@@ -12,6 +12,8 @@ import { SummaryComponent } from './summary/summary.component';
 import { FormsModule } from "@angular/forms";
 import { HttpModule } from "@angular/http";
 import { HttpClientModule } from "@angular/common/http";
+import { MatDialogModule } from "@angular/material";
+import { modalAlert } from './modal-alert/modal-alert.component';
 
 @NgModule({
   declarations: [ //ประกาศใช้ componen, ShoppingCartComponentt
@@ -20,7 +22,8 @@ import { HttpClientModule } from "@angular/common/http";
     TitlePipe,
     ProductListComponent,
     SummaryComponent,
-    BgColorDirective
+    BgColorDirective,
+    modalAlert
   ],
   imports: [ //import TS
     BrowserModule,
@@ -37,7 +40,8 @@ import { HttpClientModule } from "@angular/common/http";
     ReactiveFormsModule,
     FormsModule,
     HttpModule,
-    HttpClientModule
+    HttpClientModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent] //default component จะประกาศใช้เฉพาะตอนแรกไม่จำเปนต้องประกาศทุก module

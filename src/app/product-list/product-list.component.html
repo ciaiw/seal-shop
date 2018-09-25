@@ -1,5 +1,46 @@
 <router-outlet></router-outlet>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <input type="text" id="txtOrderNo" [(ngModel)] ="orderNo" class="form-control" (keyup.enter)="getData(orderNo)"/>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3 text-center">
+      <button (click)="getData(orderNo)" class="btn btn-green">Get data</button>
+      <button (click)="getData(orderNo = '');" class="btn btn-green">Clear data</button>
+    </div>
+  </div>
 <div class="row">
+    <div class="col-md-12">
+        <table class="table table-striped">
+            <thead class="th-green">
+              <tr>
+                <th scope="col">Order No.</th>
+                <th scope="col">Order Date</th>
+                <th scope="col">Name</th>
+                <th scope="col">Mobile</th>
+                <th scope="col">Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of cusList">
+                <td>{{item.orderNo }}</td>
+                <td>{{item.orderDate }}</td>
+                <td>{{item.orderCustomerName }}</td>
+                <td>{{item.orderMobileNo }}</td>
+                <td>{{item.status }}</td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+  </div>
+  <app-modal-alert></app-modal-alert>
+</div>
+
+
+
+<!-- <div class="row">
   <div class="col-md-4" *ngFor="let item of listItem">
       <div class="panelList" appBgColor>
         <img src="{{item.imageUrl}}" alt="">
@@ -8,4 +49,15 @@
           <button (click)="addToCart(item)" class="btn btn-primary" appBgColor bgColor="#0047ba">Add to Cart</button>
       </div>
   </div>
-</div>
+  
+  <div class="col-md-4" *ngFor="let item of cusList">
+      <div class="panelList" appBgColor>
+          <p>{{item.orderNo | title : 'Order No.' }}</p>
+          <p>{{item.orderDate | title : 'date' }}</p>
+          <p>{{item.orderCustomerName | title : 'Name' }}</p>
+          <p>{{item.orderMobileNo | title : 'Mobile' }}</p>
+      </div>
+  </div>
+</div> -->
+
+

@@ -1,6 +1,8 @@
 import { Component, Input } from '@angular/core';
 import { ProductsService } from "src/app/products.service";
 import { CartService } from './cart.service';
+import {MatDialog, MatDialogConfig} from "@angular/material";
+import { modalAlert } from './modal-alert/modal-alert.component';
 
 @Component({
   selector: 'app-root',
@@ -33,6 +35,7 @@ export class AppComponent {
 
   ngOnInit(){
     this.cartItemCount = this.cartService.count;
-
   }
+
+
 }
